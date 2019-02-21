@@ -73,7 +73,7 @@ func main() {
 	fmt.Println("스케줄 패턴 입력")
 	fmt.Println("( 1 <= default 수 <= 9, 나머지 ?로)")
 	fmt.Println("( ex. ? ? ? 8 ? ? ? ) ↓ ")
-	_, err = fmt.Scan(&sun, &mon, &tus, &wed, &thu, &fri, &sat)
+	_, err = fmt.Scanln(&sun, &mon, &tus, &wed, &thu, &fri, &sat)
 	if err != nil {
 		fmt.Println("잘못 입력함. 실패이유 = ", err)
 	}
