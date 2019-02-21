@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"reflect"
+	"strconv"
 )
 
 var str []int
@@ -19,6 +19,7 @@ func full(depth int) {
 	// ?
 	//pattern := 5
 	//var selected [5]int
+	fmt.Println("start")
 	selected := make([]int, pattern)
 	i := 0
 
@@ -48,7 +49,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("일주일 목표 근무시간(x) 입력( 1 <= x <= 63 ) ↓ ")
 
-	_, err := fmt.Scan(&weekGoalTime)
+	_, err := fmt.Scanln(&weekGoalTime)
 	if err != nil {
 		fmt.Println("잘못 입력함. 실패이유 = ", err)
 		return
@@ -58,7 +59,7 @@ func main() {
 	}
 
 	fmt.Println("하루 최대 근무시간(y) 입력( 1 <= x <= 9 ) ↓ ")
-	_, err = fmt.Scan(&dayGoalTime)
+	_, err = fmt.Scanln(&dayGoalTime)
 	if err != nil {
 		fmt.Println("잘못 입력함. 실패이유 = ", err)
 		return
@@ -94,16 +95,18 @@ func main() {
 }
 
 func PatternCheck(day string) {
-	daytype := reflect.TypeOf(day)
+
 	if day == "?" {
 		pattern++
-	} else if daytype.Name() == "int" {
+	} else {
+		num, err := strconv.Atoi(day)
+		if err != nil {
+			fmt.Println("잘못 입력함. 조건 : 스케줄 패턴을 숫자와 ?로 입력")
+			return
+		}
 		str = append(str, num)
 		// default 숫자라면
 		resultWeek -= num
 		fmt.Println(resultWeek)
-	} else {
-		fmt.Println("잘못 입력함. 조건 : 스케줄 패턴을 숫자와 ?로 입력")
-		return
 	}
 }
