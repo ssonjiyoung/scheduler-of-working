@@ -4,31 +4,64 @@ import (
 	"fmt"
 )
 
-func main() {
-	var m, n int
+var selected [3]int
 
-	m = 3
-	n = 3
+func full(depth int) {
+	input1 := 4
+	input2 := 3
 
-	//생성
-	var arr []int
-	for i := 0; i < m; i++ {
-		arr[i] = i
-	}
-
-	fmt.Println("중복순열 출력")
-	RPerm(arr, 0, m, n)
-}
-
-func RPerm(set []int, set_size int, m int, n int) {
-	// 종료
-	for set_size == n {
-		fmt.Println(set, set_size)
+	i := 0
+	if input2 == depth {
+		for i = 0; i < input2; i++ {
+			fmt.Print(selected[i])
+		}
+		fmt.Println()
 		return
 	}
-	// 분기
-	for i := 0; i < m; i++ {
-		set[set_size] = i
-		RPerm(set, set_size+1, m, n)
+	for i := 0; i < input1; i++ {
+		selected[depth] = i
+		full(depth + 1)
 	}
 }
+
+func main() {
+	full(0)
+	return
+}
+
+// func RPerm(set []int, set_size int, m int, n int) {
+// 	// 종료
+// 	for set_size == n {
+// 		fmt.Println(set, set_size)
+// 		return
+// 	}
+// 	// 분기
+// 	for i := 0; i < m; i++ {
+// 		set[set_size] = i
+// 		RPerm(set, set_size+1, m, n)
+// 	}
+// }
+
+// func swap(a int, b int) {
+// 	tmp := a
+// 	a = b
+// 	b = tmp
+// }
+
+// func print_arr(size int) {
+// 	for i := 0; i < size; i++ {
+// 		fmt.Println(arr[i])
+// 	}
+// 	fmt.Println()
+// }
+
+// func check_arr(size int) int{
+// 	tot := 0
+// 	for i := 0; i < size; i++ {
+// 		if arr[i] > input2 {
+// 			return 0;
+// 		}
+// 		tot +=
+// 	}
+// 	fmt.Println()
+// }
