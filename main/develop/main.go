@@ -8,6 +8,7 @@ var selected [5]int
 var num = 0
 
 func full(depth int) {
+
 	// day
 	input1 := 9
 	// ?
