@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"time"
 )
 
 var str []int
@@ -90,9 +91,16 @@ func main() {
 	PatternCheck(sat)
 
 	selected = make([]int, pattern)
+
+	startTime := time.Now()
 	// depth
 	full(0)
 	fmt.Println("num = ", num)
+
+	elapsedTime := time.Since(startTime)
+
+	fmt.Println("실행시간 = ", elapsedTime)
+
 	return
 }
 
