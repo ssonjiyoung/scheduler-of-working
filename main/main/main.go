@@ -14,13 +14,6 @@ var selected []int
 
 // depth, day, week, ? , defualt뺀수
 func full(depth int) {
-	// day
-	//dayGoalTime := 9
-	// week
-	//weekGoalTime := 35
-	// ?
-	//pattern := 5
-	//var selected [5]int
 
 	i := 0
 
@@ -37,7 +30,6 @@ func full(depth int) {
 			fmt.Println(sliceA)
 			num++
 		}
-		//fmt.Println()
 		return
 	}
 	for i := 0; i <= dayGoalTime; i++ {
