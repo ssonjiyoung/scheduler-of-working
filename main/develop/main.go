@@ -10,40 +10,37 @@ var str [7]int
 var num = 0
 var dayGoalTime, weekGoalTime, pattern, resultWeek int
 var sun, mon, tus, wed, thu, fri, sat string
-var exist_sun, exist_mon, exist_tus, exist_wed, exist_thu, exist_fri, exist_sat string
 var selected []int
 
 // depth, day, week, ? , defualt뺀수
 func full(depth int) {
-
+	fmt.Println("0")
+	//fmt.Println("str is ", str)
 	i := 0
 
 	if pattern == depth {
-
+		fmt.Println("2")
 		result := 0
-		var s []int
+		//var s []int
 		for i = 0; i < pattern; i++ {
-			result += selected[i]
 
-			//s = append(s, selected[i])
-			for j := 0; j < 7; {
-				if str[i] != 0 {
-					j++
-				}
-				str[i] = selected[i]
-				j++
+			if str[i] != 0 {
+				continue
 			}
+			result += selected[i]
+			str[i] = selected[i]
+
 		}
 
 		if result == resultWeek {
 			//sliceA := append(s, str...)
-			fmt.Println(str)
-
+			fmt.Println("str = ", str)
 			num++
 		}
 		return
 	}
 	for i := 0; i <= dayGoalTime; i++ {
+		fmt.Println("1")
 		selected[depth] = i
 		full(depth + 1)
 	}
@@ -120,6 +117,7 @@ func PatternCheck(day string, daynum int) {
 		//str = append(str, num)
 		// default 숫자라면
 		resultWeek -= num
+
 		fmt.Println(resultWeek)
 	}
 }

@@ -14,25 +14,28 @@ var selected []int
 
 // depth, day, week, ? , defualt뺀수
 func full(depth int) {
-
 	i := 0
-
+	fmt.Print("스탭1")
 	if pattern == depth {
+		fmt.Print("스탭2")
 		result := 0
 		var s []int
 		for i = 0; i < pattern; i++ {
+			fmt.Print("스탭3")
 			result += selected[i]
 			s = append(s, selected[i])
 		}
 
 		if result == resultWeek {
+			fmt.Print("스탭4")
 			sliceA := append(s, str...)
-			fmt.Println(sliceA)
+			fmt.Print(sliceA)
 			num++
 		}
 		return
 	}
 	for i := 0; i <= dayGoalTime; i++ {
+		fmt.Print("스탭5")
 		selected[depth] = i
 		full(depth + 1)
 	}
